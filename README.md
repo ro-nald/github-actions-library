@@ -26,3 +26,4 @@ graph TD
 
 - [ ] Pipeline template to provision EC2 instance for Python application which encrypts traffic up to an ALB (Application Load Balancer)
 - [ ] Provide examples on how to consume library templates
+- [ ] Enable usage of Terraform Modules library
