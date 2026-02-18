@@ -1,0 +1,20 @@
+name: 'Setup Environment'
+description: 'Standardizes environment setup and dependency caching'
+
+inputs:
+  gh_token:
+    description: 'GitHub Token for private registry access'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Environment Variables
+      run: echo "ENV=production" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Cache Dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

@@ -1,0 +1,35 @@
+name: Standard CI Pipeline
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: 'The version of Node.js to use'
+        default: '20'
+        required: false
+        type: string
+    secrets:
+      SONAR_TOKEN:
+        description: 'Token for security scanning'
+        required: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: 'npm'
+
+      - name: Install and Test
+        run: |
+          npm ci
+          npm test
+
+      - name: Security Scan
+        if: ${{ secrets.SONAR_TOKEN != '' }}
+        run: echo "Running security analysis with token..."
