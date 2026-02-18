@@ -1,6 +1,6 @@
 # GitHub Actions Library
 
-
+A centralized Internal Developer Platform (IDP) asset library. Provides reusable GitHub Actions and workflows designed to standardize CI/CD across an organization, implementing 'Golden Path' patterns for security, scalability, and developer self-service.
 
 ```mermaid
 graph TD
