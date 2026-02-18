@@ -21,3 +21,7 @@ graph TD
     style CI fill:#f9f,stroke:#333,stroke-width:2px
     style AppA fill:#bbf,stroke:#333
 ```
+
+## Upcoming Features
+
+- [ ] Pipeline template to provision EC2 instance for Python application which encrypts traffic up to an ALB (Application Load Balancer)
